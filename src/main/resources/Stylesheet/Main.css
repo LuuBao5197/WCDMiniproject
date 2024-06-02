@@ -7,7 +7,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : Luu Bao
 */
 
+.buttonMain {
+    -fx-background-color: #fff;
+}
 .buttonMain:hover {
-  background-color: red;
-  color: lawngreen;
+    -fx-background-color: #99ffff;
+    -fx-text-fill: red;
+
+}
+.buttonMain:active {
+    -fx-background-color:red;
 }

@@ -139,7 +139,7 @@
    <left>
       <VBox prefHeight="630.0" prefWidth="227.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="227.0" style="-fx-background-color: #fff;" styleClass="buttonMain" stylesheets="@../../Stylesheet/Main.css" text="Trang chủ" textAlignment="JUSTIFY" textOverrun="CLIP">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="227.0" styleClass="buttonMain" stylesheets="@../../Stylesheet/Main.css" text="Trang chủ" textAlignment="JUSTIFY" textOverrun="CLIP">
                <graphic>
                   <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -160,7 +160,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="275.0" style="-fx-background-color: #fff;" styleClass="buttonMain" stylesheets="@../../Stylesheet/Main.css" text="Nhập hàng" textAlignment="JUSTIFY" textOverrun="CLIP">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="275.0" styleClass="buttonMain" stylesheets="@../../Stylesheet/Main.css" text="Nhập hàng" textAlignment="JUSTIFY" textOverrun="CLIP">
                <graphic>
                   <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -181,7 +181,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" style="-fx-background-color: #fff;" styleClass="buttonMain" text="Xuất hàng" textAlignment="JUSTIFY">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Xuất hàng" textAlignment="JUSTIFY">
                <graphic>
                   <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -202,7 +202,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" style="-fx-background-color: #fff;" styleClass="buttonMain" text="Sản phẩm" textAlignment="JUSTIFY">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Sản phẩm" textAlignment="JUSTIFY">
                <graphic>
                   <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -223,7 +223,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" style="-fx-background-color: #fff;" styleClass="buttonMain" text="Khách hàng" textAlignment="JUSTIFY">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Khách hàng" textAlignment="JUSTIFY">
                <graphic>
                   <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -244,7 +244,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" style="-fx-background-color: #fff;" styleClass="buttonMain" text="Nhân viên" textAlignment="JUSTIFY">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Nhân viên" textAlignment="JUSTIFY">
                <graphic>
                   <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -265,7 +265,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" style="-fx-background-color: #fff;" styleClass="buttonMain" text="Tài khoản" textAlignment="JUSTIFY">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Tài khoản" textAlignment="JUSTIFY">
                <graphic>
                   <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -286,7 +286,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" style="-fx-background-color: #fff;" text="Thống kê" textAlignment="JUSTIFY">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Thống kê" textAlignment="JUSTIFY">
                <graphic>
                   <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
