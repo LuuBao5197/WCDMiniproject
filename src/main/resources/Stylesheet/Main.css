@@ -15,6 +15,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-text-fill: red;
 
 }
-.buttonMain:active {
-    -fx-background-color:red;
+.buttonMain:focused {
+    -fx-background-color:#7bf60b;
 }
