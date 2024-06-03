@@ -307,6 +307,24 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Nhà cung cấp" textAlignment="JUSTIFY">
+               <graphic>
+                  <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icon/truck.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
          </children>
       </VBox>
    </left>
