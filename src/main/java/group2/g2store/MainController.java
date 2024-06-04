@@ -4,17 +4,13 @@
  */
 package group2.g2store;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.input.MouseDragEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
 
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 /**
  * FXML Controller class
  *
@@ -22,12 +18,7 @@ import javafx.scene.layout.Background;
  */
 public class MainController implements Initializable {
 
-    @FXML
-    private Button btnHome;
 
-
-
-    
     /**
      * Initializes the controller class.
      */
@@ -35,11 +26,6 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
 
-    @FXML
-    private void handleHome(MouseEvent event) throws IOException {
-        App.setRoot("Home");
-    }
-
-  
 }
