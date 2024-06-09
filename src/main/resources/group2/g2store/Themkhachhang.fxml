@@ -349,7 +349,7 @@
             </Button>
             <AnchorPane layoutY="46.0" prefHeight="44.0" prefWidth="1327.0" style="-fx-background-color: limegreen;">
                <children>
-                  <Label layoutY="3.0" prefHeight="38.0" prefWidth="239.0" text="Thêm Khách Hàng Mói" />
+                  <Label layoutY="3.0" prefHeight="38.0" prefWidth="239.0" text="Thêm Khách Hàng Mới" />
                </children>
             </AnchorPane>
          </children>
