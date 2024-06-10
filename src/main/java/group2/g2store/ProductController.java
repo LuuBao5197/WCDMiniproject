@@ -35,6 +35,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
@@ -88,13 +89,10 @@ public class ProductController implements Initializable {
     private ObservableList<Product> ProductList;
     @FXML
     private TableColumn<Product, Integer> stt;
-    @FXML
-    private Button BtnAdd;
     Dialog<Product> dialog = new Dialog<>();
     Dialog<Product> dialogEditProduct;
     @FXML
     private TableColumn<Product, String> imageColumn;
-    @FXML
     private AnchorPane APProduct;
 
     private File SelectedImageFile = null;
@@ -117,6 +115,8 @@ public class ProductController implements Initializable {
     private Button btnRefresh;
     @FXML
     private ComboBox<Pair<String, Integer>> cbFilterCategory;
+    @FXML
+    private Button BtnAdd;
 
     /**
      * Initializes the controller class.
@@ -334,7 +334,7 @@ public class ProductController implements Initializable {
                     try {
 
                         String imagePath = "src\\main\\resources\\group2\\imageProduct\\" + item;
-                        
+
                         Image image = new Image(new File(imagePath).toURI().toString());
                         imageView.setImage(image);
                         setGraphic(imageView);
@@ -350,24 +350,25 @@ public class ProductController implements Initializable {
         handleSelectProduct();
 
     }
-    
-    public void searchProductsbyName(String keyword){
-        
+
+    public void searchProductsbyName(String keyword) {
+
         List<Product> pList;
-        
-      pList = getProducts().stream().filter(p -> p.getProductName().contains(keyword)).collect(Collectors.toList());
-      ProductList = FXCollections.observableArrayList(pList);
-      tbProductView.setItems(ProductList);
+
+        pList = getProducts().stream().filter(p -> p.getProductName().contains(keyword)).collect(Collectors.toList());
+        ProductList = FXCollections.observableArrayList(pList);
+        tbProductView.setItems(ProductList);
     }
 
-    public void searchProductsbyCategory(String keyword){
-        
+    public void searchProductsbyCategory(String keyword) {
+
         List<Product> pList;
-        
-      pList = getProducts().stream().filter(p -> p.getProductCategory().contains(keyword)).collect(Collectors.toList());
-      ProductList = FXCollections.observableArrayList(pList);
-      tbProductView.setItems(ProductList);
+
+        pList = getProducts().stream().filter(p -> p.getProductCategory().contains(keyword)).collect(Collectors.toList());
+        ProductList = FXCollections.observableArrayList(pList);
+        tbProductView.setItems(ProductList);
     }
+
     public void handleSelectProduct() {
 
         tbProductView.getSelectionModel()
@@ -672,7 +673,7 @@ public class ProductController implements Initializable {
         cbBrandEditProduct.setItems(getBrand());
         cbBrandEditProduct.setValue(getBrand().filtered(item -> item.getKey().equals(SelectProduct.getProductBrand())).get(0));
         cbBrandEditProduct.setOnAction((event) -> {
-            productBrand.setText(cbBrandEditProduct.getValue().getValue()+ "");
+            productBrand.setText(cbBrandEditProduct.getValue().getValue() + "");
         });
         Button btnAddBrand = new Button("Thêm thương hiệu");
         Button btnAddCategory = new Button("Thêm danh mục sản phẩm");
@@ -770,8 +771,8 @@ public class ProductController implements Initializable {
         showDialogEditProduct();
         Optional<Product> result = dialogEditProduct.showAndWait();
         System.out.println(result);
-            result.ifPresent(item -> {
-            String sql = "UPDATE PRODUCT SET ProductName = ? , ProductImage = ?, BrandID = ?, CategoryId = ? WHERE ProductID = ?" ;
+        result.ifPresent(item -> {
+            String sql = "UPDATE PRODUCT SET ProductName = ? , ProductImage = ?, BrandID = ?, CategoryId = ? WHERE ProductID = ?";
             PreparedStatement ps;
             try {
                 ps = con.prepareStatement(sql);
@@ -779,10 +780,10 @@ public class ProductController implements Initializable {
                 ps.setString(2, item.getImages());
                 ps.setInt(3, Integer.parseInt(item.getProductBrand()));
                 ps.setInt(4, Integer.parseInt(item.getProductCategory()));
-                ps.setString(5,  item.getProductID());
+                ps.setString(5, item.getProductID());
 
                 if (ps.executeUpdate() != 1) {
-                    
+
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("KET QUA");
                     alert.setContentText("Không sửa được thông tin sản phẩm");

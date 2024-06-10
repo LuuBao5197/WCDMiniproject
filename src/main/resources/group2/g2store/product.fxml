@@ -22,7 +22,7 @@
                <children>
                   <VBox layoutX="7.0" layoutY="109.0" prefHeight="588.0" prefWidth="228.0">
                      <children>
-                        <Button fx:id="btnHome" alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#handleHome" prefHeight="60.0" prefWidth="227.0" styleClass="buttonMain" stylesheets="@../../Stylesheet/Main.css" text="Home" textAlignment="JUSTIFY" textOverrun="CLIP">
+                        <Button fx:id="btnHome" alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#handleHome" prefHeight="60.0" prefWidth="227.0" styleClass="buttonMain" stylesheets="@../../Stylesheet/Main.css" text="Trang chủ" textAlignment="JUSTIFY" textOverrun="CLIP">
                            <graphic>
                               <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -43,7 +43,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="275.0" styleClass="buttonMain" stylesheets="@../../Stylesheet/Main.css" text="Import product" textAlignment="JUSTIFY" textOverrun="CLIP">
+                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="275.0" styleClass="buttonMain" stylesheets="@../../Stylesheet/Main.css" text="Nhập hàng" textAlignment="JUSTIFY" textOverrun="CLIP">
                            <graphic>
                               <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -64,7 +64,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Sale product" textAlignment="JUSTIFY">
+                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Xuất hàng" textAlignment="JUSTIFY">
                            <graphic>
                               <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -85,7 +85,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Product" textAlignment="JUSTIFY">
+                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Sản phẩm" textAlignment="JUSTIFY">
                            <graphic>
                               <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -106,7 +106,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Customer" textAlignment="JUSTIFY">
+                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Khách hàng" textAlignment="JUSTIFY">
                            <graphic>
                               <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -127,7 +127,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Supplier" textAlignment="JUSTIFY">
+                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Nhà cung cấp" textAlignment="JUSTIFY">
                            <graphic>
                               <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -145,7 +145,7 @@
                               <Insets />
                            </opaqueInsets>
                         </Button>
-                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Employee" textAlignment="JUSTIFY">
+                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Nhân viên" textAlignment="JUSTIFY">
                            <graphic>
                               <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -166,7 +166,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Account" textAlignment="JUSTIFY">
+                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Tài khoản" textAlignment="JUSTIFY">
                            <graphic>
                               <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -187,7 +187,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Statistics" textAlignment="JUSTIFY">
+                        <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0" prefWidth="276.0" styleClass="buttonMain" text="Thống kê" textAlignment="JUSTIFY">
                            <graphic>
                               <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -210,7 +210,7 @@
                         </Button>
                      </children>
                   </VBox>
-                  <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" layoutY="734.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="238.0" styleClass="buttonMain" text="Logout" AnchorPane.leftAnchor="0.0">
+                  <Button alignment="BOTTOM_LEFT" graphicTextGap="20.0" layoutY="734.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="238.0" styleClass="buttonMain" text="Đăng xuất" AnchorPane.leftAnchor="0.0">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -230,9 +230,9 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="84.0" prefWidth="240.0">
+            <AnchorPane prefHeight="84.0" prefWidth="234.0">
                <children>
-                  <Label layoutX="88.0" layoutY="37.0" text="Store owner">
+                  <Label layoutX="88.0" layoutY="37.0" text="Quản lý kho">
                      <font>
                         <Font name="Arial Italic" size="16.0" />
                      </font>
@@ -251,11 +251,11 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="APProduct" layoutX="239.0" prefHeight="800.0" prefWidth="1163.0">
+      <AnchorPane layoutX="239.0" prefHeight="800.0" prefWidth="1163.0">
          <children>
             <AnchorPane prefHeight="82.0" prefWidth="482.0" style="-fx-background-color: #FFF;">
                <children>
-                  <Button fx:id="BtnAdd" contentDisplay="TOP" graphicTextGap="8.0" layoutY="3.200000762939453" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleAddProduct" prefHeight="63.0" style="-fx-background-color: #fff;" text="ADD" textFill="#3b1edf" textOverrun="CLIP">
+                  <Button fx:id="BtnAdd" contentDisplay="TOP" graphicTextGap="8.0" layoutY="3.200000762939453" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleAddProduct" prefHeight="63.0" style="-fx-background-color: #fff;" text="THÊM" textFill="#3b1edf" textOverrun="CLIP">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #fff;">
                            <image>
@@ -270,7 +270,7 @@
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnEditProduct" contentDisplay="TOP" disable="true" graphicTextGap="8.0" layoutX="84.0" layoutY="3.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleEditProduct" prefHeight="63.0" style="-fx-background-color: #fff;" text="EDIT" textFill="#3b1edf" textOverrun="CLIP">
+                  <Button fx:id="btnEditProduct" contentDisplay="TOP" disable="true" graphicTextGap="8.0" layoutX="84.0" layoutY="3.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleEditProduct" prefHeight="63.0" style="-fx-background-color: #fff;" text="SỬA" textFill="#3b1edf" textOverrun="CLIP">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -285,7 +285,7 @@
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Button>
-                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="171.0" layoutY="3.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: #fff;" text="DELETE" textFill="#3b1edf" textOverrun="CLIP">
+                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="171.0" layoutY="3.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: #fff;" text="XOÁ" textFill="#3b1edf" textOverrun="CLIP">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #fff;">
                            <image>
@@ -300,7 +300,25 @@
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Button>
-                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="255.0" layoutY="3.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="67.0" prefWidth="122.0" style="-fx-background-color: #fff;" text="EXPORT " textFill="#3b1edf" textOverrun="CLIP">
+                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="253.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="127.0" style="-fx-background-color: #fff;" text="NHẬP EXCEL" textFill="#3b1edf" textOverrun="CLIP">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icon/excel.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </Button>
+                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="369.0" layoutY="2.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="67.0" prefWidth="135.0" style="-fx-background-color: #fff;" text="XUẤT EXCEL" textFill="#3b1edf" textOverrun="CLIP">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -335,14 +353,14 @@
                   </Button>
                </children>
             </AnchorPane>
-            <TableView fx:id="tbProductView" layoutY="64.0" prefHeight="710.0" prefWidth="1130.0">
+            <TableView fx:id="tbProductView" layoutY="82.0" prefHeight="710.0" prefWidth="1130.0">
               <columns>
-                  <TableColumn fx:id="stt" prefWidth="75.0" style="-fx-alignment: center;" text="STT" />
-                <TableColumn fx:id="ProductID" editable="false" prefWidth="120.79998779296875" style="-fx-alignment: center;" text="ID" />
-                <TableColumn fx:id="ProductName" prefWidth="351.20001220703125" style="-fx-alignment: center;" text="Name" />
-                  <TableColumn fx:id="ProductBrand" minWidth="0.0" prefWidth="172.0" style="-fx-alignment: center;" text="Brand" />
-                  <TableColumn fx:id="ProductCategory" prefWidth="163.20001220703125" style="-fx-alignment: center;" text="Category" />
-                  <TableColumn fx:id="imageColumn" prefWidth="163.20001220703125" style="-fx-alignment: center;" text="Image" />
+                  <TableColumn fx:id="stt" prefWidth="75.0" text="STT" />
+                <TableColumn fx:id="ProductID" editable="false" prefWidth="120.79998779296875" text="ID" />
+                <TableColumn fx:id="ProductName" prefWidth="351.20001220703125" text="Name" />
+                  <TableColumn fx:id="ProductBrand" minWidth="0.0" prefWidth="172.0" text="Brand" />
+                  <TableColumn fx:id="ProductCategory" prefWidth="163.20001220703125" text="Category" />
+                  <TableColumn fx:id="imageColumn" prefWidth="163.20001220703125" text="Image" />
               </columns>
             </TableView>
          </children>
