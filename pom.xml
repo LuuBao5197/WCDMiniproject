@@ -86,4 +86,6 @@
             </plugin>
         </plugins>
     </build>
+    <description>Phần mềm quản lý cửa hàng tiện lợi</description>
+    <name>G2Store</name>
 </project>

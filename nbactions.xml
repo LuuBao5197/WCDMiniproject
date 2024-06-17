@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <actions>
+<actions>
         <action>
             <actionName>run</actionName>
             <packagings>
@@ -9,6 +9,11 @@
                 <goal>clean</goal>
                 <goal>javafx:run</goal>
             </goals>
+            <properties>
+                
+                <jshell.classloader.from.class>group2.g2store.App</jshell.classloader.from.class>
+                <jshell.run.classloader>class</jshell.run.classloader>
+            </properties>
         </action>
         <action>
             <actionName>debug</actionName>
@@ -18,6 +23,9 @@
             </goals>
             <properties>
                 <jpda.listen>true</jpda.listen>
+                
+                <jshell.classloader.from.class>group2.g2store.App</jshell.classloader.from.class>
+                <jshell.run.classloader>class</jshell.run.classloader>
             </properties>
         </action>
         <action>
@@ -36,5 +44,35 @@
                 <goal>compile</goal>
                 <goal>javafx:jlink</goal>
             </goals>
+        </action>
+        <action>
+            <actionName>rebuild</actionName>
+            <preAction>build-with-dependencies</preAction>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+            </goals>
+            <properties>
+                <Env.JAVA_HOME>C:\Program Files\Java\jdk-21</Env.JAVA_HOME>
+                <jpda.listen>maven</jpda.listen>
+            </properties>
+        </action>
+        <action>
+            <actionName>build</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>install</goal>
+            </goals>
+            <properties>
+                <skipTests>true</skipTests>
+                <jpda.listen>maven</jpda.listen>
+                <Env.FOO>bar</Env.FOO>
+                <Env.JAVA_HOME>C:\Program Files\Java\jdk-21</Env.JAVA_HOME>
+            </properties>
         </action>
     </actions>
