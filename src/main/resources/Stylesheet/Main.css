@@ -21,3 +21,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 AnchorPane {
     -fx-border-color:blanchedalmond;
 }
+.btnThanhToan{
+    -fx-background-color:green;
+    -fx-background-radius:13px;
+}
+
+.btnThanhToan:hover{
+    -fx-background-color:darkolivegreen;
+}
+.btnHover:hover{
+    -fx-background-color:#ddd;
+}
+
+.btnHover{
+        -fx-background-color:white;
+}

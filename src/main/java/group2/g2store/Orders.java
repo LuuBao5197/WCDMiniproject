@@ -8,6 +8,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Orders {
+
     private final SimpleStringProperty orderId;
     private final SimpleStringProperty customerPhone;
     private final SimpleStringProperty datetimeOrder;
@@ -47,7 +48,8 @@ public class Orders {
     }
 
     public String getDatetimeOrder() {
-        return datetimeOrder.get();
+        // Trả về ngày tháng theo định dạng yyyy-MM-dd HH:mm:ss
+        return datetimeOrder.get().substring(0, 19); // Cắt bỏ phần mili giây
     }
 
     public void setDatetimeOrder(String datetimeOrder) {

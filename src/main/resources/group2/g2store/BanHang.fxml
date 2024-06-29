@@ -6,8 +6,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -258,7 +258,7 @@
          <children>
             <AnchorPane prefHeight="82.0" prefWidth="482.0" style="-fx-background-color: #FFF;">
                <children>
-                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="14.0" layoutY="2.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnAdd" prefHeight="78.0" prefWidth="78.0" styleClass="btnHover" stylesheets="@../../Stylesheet/Main.css" text="THÊM" textFill="#3b1edf" textOverrun="CLIP">
+                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="7.0" layoutY="2.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnAdd" prefHeight="78.0" prefWidth="78.0" styleClass="btnHover" stylesheets="@../../Stylesheet/Main.css" text="ADD" textFill="#3b1edf" textOverrun="CLIP">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #fff;">
                            <image>
@@ -273,7 +273,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="114.0" layoutY="2.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnDetail" prefHeight="78.0" prefWidth="90.0" styleClass="btnHover" stylesheets="@../../Stylesheet/Main.css" text="CHI TIẾT" textFill="#3b1edf" textOverrun="CLIP">
+                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="93.0" layoutY="2.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnDetail" prefHeight="78.0" prefWidth="90.0" styleClass="btnHover" stylesheets="@../../Stylesheet/Main.css" text="DETAILS" textFill="#3b1edf" textOverrun="CLIP">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #fff;">
                            <image>
@@ -288,7 +288,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="222.0" layoutY="2.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnExportExcel" prefHeight="78.0" prefWidth="129.0" styleClass="btnHover" stylesheets="@../../Stylesheet/Main.css" text="XUẤT EXCEL" textFill="#3b1edf" textOverrun="CLIP">
+                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="190.0" layoutY="2.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnExportExcel" prefHeight="80.0" prefWidth="153.0" styleClass="btnHover" stylesheets="@../../Stylesheet/Main.css" text="EXPORT EXCEL" textFill="#3b1edf" textOverrun="CLIP">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -303,7 +303,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="351.0" layoutY="2.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnExportPDF" prefHeight="78.0" prefWidth="129.0" styleClass="btnHover" stylesheets="@../../Stylesheet/Main.css" text="XUẤT PDF" textFill="#3b1edf" textOverrun="CLIP">
+                  <Button contentDisplay="TOP" graphicTextGap="8.0" layoutX="351.0" layoutY="2.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnExportPDF" prefHeight="78.0" prefWidth="129.0" styleClass="btnHover" stylesheets="@../../Stylesheet/Main.css" text="EXPORT PDF" textFill="#3b1edf" textOverrun="CLIP">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -322,9 +322,7 @@
             </AnchorPane>
             <AnchorPane layoutX="486.0" layoutY="2.0" prefHeight="82.0" prefWidth="663.0">
                <children>
-                  <ComboBox editable="true" layoutX="58.0" layoutY="20.0" prefHeight="43.0" prefWidth="184.0" promptText="Tất cả" />
-                  <TextField layoutX="291.0" layoutY="20.0" prefHeight="43.0" prefWidth="201.0" promptText="Nhập nội dung tìm kiếm" />
-                  <Button layoutX="539.0" layoutY="27.0" mnemonicParsing="false" text="Làm mới">
+                  <Button layoutX="533.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnReload" prefHeight="43.0" style="-fx-background-color: white; -fx-border-color: green; -fx-border-radius: 10px;" text="Reload">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -335,60 +333,61 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </AnchorPane>
             <AnchorPane layoutY="87.0" prefHeight="708.0" prefWidth="253.0" style="-fx-background-color: white;">
                <children>
-                  <Label layoutX="20.0" layoutY="30.0" prefHeight="20.0" prefWidth="101.0" text="Khách hàng:">
+                  <Label layoutX="20.0" layoutY="30.0" prefHeight="20.0" prefWidth="101.0" text="Customers">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="comboBoxCustomer" layoutX="18.0" layoutY="54.0" prefHeight="43.0" prefWidth="218.0" promptText="Tất cả" style="-fx-background-color: white; -fx-border-color: grey;" />
-                  <Label layoutX="21.0" layoutY="123.0" prefHeight="25.0" prefWidth="119.0" text="Nhân viên xuất">
+                  <ComboBox fx:id="comboBoxCustomer" layoutX="18.0" layoutY="54.0" prefHeight="43.0" prefWidth="218.0" promptText="See all" style="-fx-background-color: white; -fx-border-color: grey;" visibleRowCount="5" />
+                  <Label layoutX="21.0" layoutY="123.0" prefHeight="25.0" prefWidth="119.0" text="Employees">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="comboBoxEmployee" layoutX="17.0" layoutY="148.0" prefHeight="43.0" prefWidth="218.0" promptText="Tất cả" style="-fx-background-color: white; -fx-border-color: grey;" />
-                  <Label layoutX="21.0" layoutY="492.0" prefHeight="25.0" prefWidth="135.0" text="Đến số tiền (VND)">
+                  <ComboBox fx:id="comboBoxEmployee" layoutX="17.0" layoutY="148.0" prefHeight="43.0" prefWidth="218.0" promptText="See all" style="-fx-background-color: white; -fx-border-color: grey;" visibleRowCount="5" />
+                  <Label layoutX="21.0" layoutY="402.0" prefHeight="25.0" prefWidth="122.0" text="Price (VND)">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="21.0" layoutY="402.0" prefHeight="25.0" prefWidth="119.0" text="Từ số tiền (VND)">
+                  <Label layoutX="21.0" layoutY="311.0" prefHeight="20.0" prefWidth="101.0" text="Date To">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="21.0" layoutY="311.0" prefHeight="20.0" prefWidth="101.0" text="Đến ngày">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="20.0" layoutY="220.0" prefHeight="20.0" prefWidth="101.0" text="Từ ngày">
+                  <Label layoutX="20.0" layoutY="220.0" prefHeight="20.0" prefWidth="101.0" text="Date From">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
                   <DatePicker fx:id="dateFrom" layoutX="19.0" layoutY="245.0" prefHeight="43.0" prefWidth="218.0" />
                   <DatePicker fx:id="dateTo" layoutX="19.0" layoutY="336.0" prefHeight="43.0" prefWidth="218.0" />
-                  <TextField fx:id="totalFrom" layoutX="18.0" layoutY="427.0" prefHeight="43.0" prefWidth="218.0" />
-                  <TextField fx:id="totalTo" layoutX="18.0" layoutY="517.0" prefHeight="43.0" prefWidth="218.0" />
+                  <Slider fx:id="sliderPrice" blockIncrement="100000.0" layoutX="18.0" layoutY="427.0" majorTickUnit="1000000.0" max="5000000.0" minorTickCount="0" prefHeight="43.0" prefWidth="218.0" showTickLabels="true" />
+                  <Label fx:id="lbSlider" alignment="CENTER_RIGHT" layoutX="113.0" layoutY="402.0" prefHeight="25.0" prefWidth="122.0" text="( 0 - 0 )">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="260.0" layoutY="87.0" prefHeight="710.0" prefWidth="883.0">
                <children>
-                  <ScrollBar layoutX="862.0" layoutY="1.0" orientation="VERTICAL" prefHeight="707.0" prefWidth="10.0" />
-                  <TableView fx:id="tableView" layoutX="-4.0" prefHeight="708.0" prefWidth="863.0">
+                  <TableView fx:id="tbOrder" layoutX="-4.0" layoutY="2.0" prefHeight="708.0" prefWidth="883.0">
                     <columns>
-                      <TableColumn fx:id="stt" prefWidth="57.0" style="-fx-alignment: center;" text="STT" />
-                      <TableColumn fx:id="madonhang" prefWidth="114.0" style="-fx-alignment: center;" text="Mã đơn hàng" />
-                        <TableColumn fx:id="somaykhachhang" prefWidth="233.0" style="-fx-alignment: center;" text="Số máy khách hàng" />
-                        <TableColumn fx:id="manhanvien" prefWidth="121.0" style="-fx-alignment: center;" text="Mã nhân viên" />
-                        <TableColumn fx:id="thoigian" prefWidth="198.0" style="-fx-alignment: center;" text="Thời gian" />
-                        <TableColumn fx:id="tongtien" prefWidth="139.0" style="-fx-alignment: center;" text="Tổng tiền" />
+                      <TableColumn fx:id="stt" prefWidth="57.0" style="-fx-alignment: center;" text="ID" />
+                      <TableColumn fx:id="madonhang" prefWidth="114.0" style="-fx-alignment: center;" text="Order ID" />
+                        <TableColumn fx:id="somaykhachhang" prefWidth="233.0" style="-fx-alignment: center;" text="Phone Customer" />
+                        <TableColumn fx:id="manhanvien" prefWidth="121.0" style="-fx-alignment: center;" text="Employee ID" />
+                        <TableColumn fx:id="thoigian" prefWidth="214.0" style="-fx-alignment: center;" text="Time" />
+                        <TableColumn fx:id="tongtien" prefWidth="143.0" style="-fx-alignment: center;" text="Total Price" />
                     </columns>
                   </TableView>
                </children>
@@ -399,31 +398,29 @@
          <children>
             <AnchorPane layoutX="5.0" layoutY="2.0" prefHeight="82.0" prefWidth="811.0">
                <children>
-                  <ComboBox editable="true" layoutX="15.0" layoutY="19.0" prefHeight="43.0" prefWidth="230.0" promptText="Category" />
-                  <TextField layoutX="558.0" layoutY="19.0" prefHeight="43.0" prefWidth="230.0" promptText="Nhập nội dung tìm kiếm" />
-                  <ComboBox editable="true" layoutX="287.0" layoutY="19.0" prefHeight="43.0" prefWidth="230.0" promptText="Brand" />
+                  <ComboBox fx:id="filterCategory" editable="true" layoutX="15.0" layoutY="19.0" prefHeight="43.0" prefWidth="230.0" promptText="Phân loại" visibleRowCount="5" />
+                  <TextField fx:id="txtSearch" layoutX="558.0" layoutY="19.0" prefHeight="43.0" prefWidth="230.0" promptText="Nhập nội dung tìm kiếm" />
+                  <ComboBox fx:id="filterBrand" editable="true" layoutX="287.0" layoutY="19.0" prefHeight="43.0" prefWidth="230.0" promptText="Thương hiệu" visibleRowCount="5" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="5.0" layoutY="88.0" prefHeight="703.0" prefWidth="812.0">
                <children>
-                  <TableView fx:id="tbView" layoutX="2.0" layoutY="3.0" prefHeight="695.0" prefWidth="805.0">
+                  <TableView fx:id="tbProduct" layoutX="2.0" layoutY="3.0" prefHeight="695.0" prefWidth="805.0">
                     <columns>
                       <TableColumn fx:id="sothutu" prefWidth="59.0" style="-fx-alignment: center;" text="STT" />
-                      <TableColumn fx:id="tensanpham" prefWidth="208.0" style="-fx-alignment: center;" text="Tên sản phẩm" />
-                        <TableColumn fx:id="thuonghieu" prefWidth="120.0" style="-fx-alignment: center;" text="Thương hiệu" />
-                        <TableColumn fx:id="phanloai" prefWidth="127.0" style="-fx-alignment: center;" text="Phân loại" />
-                        <TableColumn fx:id="giaban" prefWidth="112.0" style="-fx-alignment: center;" text="Giá bán" />
-                        <TableColumn fx:id="anh" prefWidth="178.0" text="Ảnh" />
+                      <TableColumn fx:id="tensanpham" prefWidth="277.0" style="-fx-alignment: center;" text="Tên sản phẩm" />
+                        <TableColumn fx:id="thuonghieu" prefWidth="207.0" style="-fx-alignment: center;" text="Thương hiệu" />
+                        <TableColumn fx:id="anh" prefWidth="261.0" style="-fx-alignment: center;" text="Ảnh" />
                     </columns>
                   </TableView>
                </children>
             </AnchorPane>
-            <ScrollPane layoutX="822.0" layoutY="89.0" prefHeight="537.0" prefWidth="327.0">
+            <ScrollPane layoutX="822.0" layoutY="89.0" prefHeight="497.0" prefWidth="327.0">
                <content>
-                  <VBox fx:id="listdachon" prefHeight="535.0" prefWidth="325.0" style="-fx-background-color: white;" />
+                  <VBox fx:id="listdachon" prefHeight="495.0" prefWidth="325.0" style="-fx-background-color: white;" />
                </content>
             </ScrollPane>
-            <Button layoutX="827.0" layoutY="717.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="318.0" style="-fx-background-color: green; -fx-background-radius: 13px;" styleClass="btnThanhToan" stylesheets="@../../Stylesheet/Main.css" text="Thanh toán" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="827.0" layoutY="717.0" mnemonicParsing="false" onAction="#btnThanhToan" prefHeight="72.0" prefWidth="318.0" style="-fx-background-radius: 13px;" styleClass="btnThanhToan" stylesheets="@../../Stylesheet/Main.css" text="Thanh toán" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
@@ -436,13 +433,13 @@
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="1089.0" layoutY="680.0" text="0 VND" underline="true">
+            <Label fx:id="totalPrice" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="918.0" layoutY="680.0" prefHeight="27.0" prefWidth="227.0" text="0 VND" underline="true">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="823.0" layoutY="637.0" prefHeight="33.0" prefWidth="238.0" promptText="Nhập mã phiếu giảm giá (nếu có)..." style="-fx-border-color: none;" />
-            <Button layoutX="1070.0" layoutY="637.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: Orange;" text="Áp dụng" textFill="WHITE">
+            <TextField fx:id="txtCoupon" layoutX="823.0" layoutY="639.0" prefHeight="33.0" prefWidth="238.0" promptText="Nhập mã phiếu giảm giá (nếu có)..." style="-fx-border-color: none;" />
+            <Button layoutX="1070.0" layoutY="639.0" mnemonicParsing="false" onAction="#btnCheckCoupon" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: Orange;" text="Áp dụng" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -468,6 +465,15 @@
                   <Font name="System Italic" size="15.0" />
                </font>
             </Label>
+            <ComboBox fx:id="listCustomer" layoutX="824.0" layoutY="600.0" prefHeight="27.0" prefWidth="325.0" promptText="Chọn khách hàng" style="-fx-background-color: white; -fx-border-color: green;" visibleRowCount="5" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="1089.0" layoutY="14.0" onMouseClicked="#btnBack" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icon/back.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

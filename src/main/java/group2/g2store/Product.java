@@ -24,6 +24,10 @@ public class Product {
     private int ImportQuantity;
     private int SoldQuantity;
     private int Inventory;
+    private float ImportPrice;
+    private float SoldPrice;
+    
+    private String HSD;
 
     public Product(String ProductID, String ProductName, String ProductBrand, String ProductCategory, String images) {
         this.ProductID = ProductID;
@@ -43,10 +47,67 @@ public class Product {
         this.Category = Category;
     }
 
+    public Product(String ProductID, String ProductName, int NKId, int ImportQuantity, int SoldQuantity, float ImportPrice, float SoldPrice, String HSD) {
+        this.ProductID = ProductID;
+        this.ProductName = ProductName;
+        this.NKId = NKId;
+        this.ImportQuantity = ImportQuantity;
+        this.SoldQuantity = SoldQuantity;
+        this.ImportPrice = ImportPrice;
+        this.SoldPrice = SoldPrice;
+        this.HSD = HSD;
+    }
+
     @Override
     public String toString() {
-        return "Product{" + "ProductID=" + ProductID + ", ProductName=" + ProductName + ", ProductBrand=" + ProductBrand + ", ProductCategory=" + ProductCategory + ", images=" + images + ", NKId=" + NKId + ", ImportQuantity=" + ImportQuantity + ", SoldQuantity=" + SoldQuantity + ", Inventory=" + Inventory + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Product{");
+        sb.append("ProductID=").append(ProductID);
+        sb.append(", ProductName=").append(ProductName);
+        sb.append(", ProductBrand=").append(ProductBrand);
+        sb.append(", ProductCategory=").append(ProductCategory);
+        sb.append(", images=").append(images);
+        sb.append(", Category=").append(Category);
+        sb.append(", NKId=").append(NKId);
+        sb.append(", ImportQuantity=").append(ImportQuantity);
+        sb.append(", SoldQuantity=").append(SoldQuantity);
+        sb.append(", Inventory=").append(Inventory);
+        sb.append(", ImportPrice=").append(ImportPrice);
+        sb.append(", SoldPrice=").append(SoldPrice);
+        sb.append(", HSD=").append(HSD);
+        sb.append('}');
+        return sb.toString();
     }
+
+    public float getImportPrice() {
+        return ImportPrice;
+    }
+
+    public void setImportPrice(float ImportPrice) {
+        this.ImportPrice = ImportPrice;
+    }
+
+    public float getSoldPrice() {
+        return SoldPrice;
+    }
+
+    public void setSoldPrice(float SoldPrice) {
+        this.SoldPrice = SoldPrice;
+    }
+
+    public String getHSD() {
+        return HSD;
+    }
+
+    public void setHSD(String HSD) {
+        this.HSD = HSD;
+    }
+    
+    
+    
+    
+
+    
 
     
 

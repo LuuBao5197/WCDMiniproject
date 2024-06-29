@@ -1,3 +1,6 @@
-.dialog-pane {
-    -fx-background-color:red;
+
+.colTV{
+    -fx-alignment: center;
+    -fx-font-size: 16px;
+  
 }

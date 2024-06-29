@@ -2,12 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -258,7 +261,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <TabPane layoutX="242.0" prefHeight="801.0" prefWidth="1159.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="252.0" layoutY="-1.0" prefHeight="801.0" prefWidth="1159.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Overview">
             <content>
@@ -281,7 +284,7 @@
                                           <Font name="Arial" size="40.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="130.0" layoutY="70.0" prefHeight="45.0" prefWidth="199.0" text="Sản phẩm hiện có trong cửa hàng" textAlignment="CENTER" wrapText="true">
+                                    <Label alignment="CENTER" layoutX="130.0" layoutY="70.0" prefHeight="45.0" prefWidth="199.0" text=" Products available in store" textAlignment="CENTER" wrapText="true">
                                        <font>
                                           <Font name="Arial" size="16.0" />
                                        </font>
@@ -300,7 +303,7 @@
                                           <Font name="Arial" size="40.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="130.0" layoutY="70.0" prefHeight="45.0" prefWidth="199.0" text="Khách đăng ký từ trước đến nay" textAlignment="CENTER" wrapText="true">
+                                    <Label alignment="CENTER" layoutX="130.0" layoutY="70.0" prefHeight="45.0" prefWidth="199.0" text="Guests have registered so far" textAlignment="CENTER" wrapText="true">
                                        <font>
                                           <Font name="Arial" size="16.0" />
                                        </font>
@@ -322,7 +325,7 @@
                                           <Font name="Arial" size="40.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="130.0" layoutY="70.0" prefHeight="45.0" prefWidth="199.0" text="Nhân viên đang hoạt đông" textAlignment="CENTER" wrapText="true">
+                                    <Label alignment="CENTER" layoutX="130.0" layoutY="70.0" prefHeight="45.0" prefWidth="199.0" text="Active Employees" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                                        <font>
                                           <Font name="Arial" size="16.0" />
                                        </font>
@@ -345,9 +348,9 @@
                         <TableView fx:id="tvOverview" layoutX="73.0" layoutY="532.0" prefHeight="200.0" prefWidth="1050.0">
                           <columns>
                             <TableColumn fx:id="DayColOverview" prefWidth="181.60009765625" style="-fx-alignment: center;" text="Date" />
-                              <TableColumn fx:id="FundsColOverview" minWidth="7.9998779296875" prefWidth="294.3998718261719" style="-fx-alignment: center;" text="Vốn" />
-                              <TableColumn fx:id="RevenueCol" minWidth="1.5999755859375" prefWidth="298.4000244140625" style="-fx-alignment: center;" text="Doanh thu" />
-                              <TableColumn fx:id="ProfitCol" minWidth="0.0" prefWidth="273.5999511718751" style="-fx-alignment: center;" text="Lợi nhuận" />
+                              <TableColumn fx:id="FundsColOverview" minWidth="7.9998779296875" prefWidth="294.3998718261719" style="-fx-alignment: center;" text="Funds" />
+                              <TableColumn fx:id="RevenueCol" minWidth="1.5999755859375" prefWidth="298.4000244140625" style="-fx-alignment: center;" text="Revenue" />
+                              <TableColumn fx:id="ProfitCol" minWidth="0.0" prefWidth="273.5999511718751" style="-fx-alignment: center;" text="Profit" />
                           </columns>
                         </TableView>
                      </children>
@@ -362,17 +365,17 @@
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="745.0" prefWidth="293.0" style="-fx-background-color: #fff;">
                                  <children>
-                                    <Label layoutX="16.0" layoutY="45.0" text="Tìm kiếm sản phẩm" />
+                                    <Label layoutX="16.0" layoutY="45.0" text="Search Product" />
                                     <TextField fx:id="tfSearchInventory" layoutX="14.0" layoutY="73.0" prefHeight="26.0" prefWidth="198.0" />
                                     <Label layoutX="16.0" layoutY="119.0" prefHeight="18.0" prefWidth="66.0" text="Category" />
                                     <AnchorPane layoutX="21.0" layoutY="223.0" prefHeight="60.0" prefWidth="180.0" style="-fx-border-color: #fff;">
                                        <children>
-                                          <Button layoutY="8.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" style="-fx-background-color: green;" text="Xuất Excel" textFill="WHITE">
+                                          <Button layoutY="8.0" mnemonicParsing="false" onAction="#ExportInventoryProduct" prefHeight="44.0" prefWidth="86.0" style="-fx-background-color: green;" text="Export Excel" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
                                              <font>
                                                 <Font name="Arial" size="14.0" />
                                              </font>
                                           </Button>
-                                          <Button fx:id="btnReLoad" layoutX="98.0" layoutY="8.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" style="-fx-background-color: #53bfe7;" text="Làm mới" textFill="WHITE">
+                                          <Button fx:id="btnReLoad" layoutX="98.0" layoutY="8.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" style="-fx-background-color: #53bfe7;" text="Refresh" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial" size="14.0" />
                                              </font>
@@ -404,7 +407,159 @@
           </Tab>
             <Tab text="Revenue">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="6.0" layoutY="7.0" prefHeight="772.8" prefWidth="1159.2" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <tabs>
+                            <Tab text="Statistics by year">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="72.0" prefWidth="1159.0" spacing="20.0">
+                                             <children>
+                                                <Label text="From year" />
+                                                <TextField fx:id="tfFromYear" prefHeight="26.0" prefWidth="85.0" />
+                                                <Label text="To year" />
+                                                <TextField fx:id="tfToYear" />
+                                                <Button mnemonicParsing="false" onAction="#handleStatisticRevenuForYear" text="Statistical" />
+                                                <Button mnemonicParsing="false" text="Export Excel" />
+                                                <Button mnemonicParsing="false" text="Reload" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </HBox>
+                                          <BarChart fx:id="BarChatforYear" animated="false" barGap="3.0" focusTraversable="true" layoutX="-4.0" layoutY="70.0" prefHeight="376.0" prefWidth="1159.0" title="Revenue chart by year">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                             <cursor>
+                                                <Cursor fx:constant="NONE" />
+                                             </cursor>
+                                          </BarChart>
+                                          <TableView fx:id="tvRevenue" layoutX="34.0" layoutY="453.0" prefHeight="262.0" prefWidth="1106.0">
+                                             <columns>
+                                                <TableColumn fx:id="YearRevenueCol" prefWidth="181.60009765625" style="-fx-alignment: center;" text="Year" />
+                                                <TableColumn fx:id="FundsColFundYear" minWidth="7.9998779296875" prefWidth="294.3998718261719" style="-fx-alignment: center;" text="Funds" />
+                                                <TableColumn fx:id="RevenueColRevenueYear" minWidth="1.5999755859375" prefWidth="298.4000244140625" style="-fx-alignment: center;" text="Revenue" />
+                                                <TableColumn fx:id="ProfitColRevenueYear" minWidth="0.0" prefWidth="273.5999511718751" style="-fx-alignment: center;" text="Profit" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Revenue chart by month">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutY="12.0" prefHeight="60.0" prefWidth="1159.0" spacing="20.0">
+                                             <children>
+                                                <Label text="Choice year" />
+                                                <Spinner fx:id="ChoiceYearSpinner" onMouseExited="#handleChoiceYearStaticsRevenue" />
+                                                <Button mnemonicParsing="false" text="Export Excel" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </HBox>
+                                          <BarChart fx:id="BarChartForMonth" animated="false" barGap="3.0" focusTraversable="true" layoutX="7.0" layoutY="62.0" onMouseExited="#handleChoiceYearStaticsRevenue" prefHeight="376.0" prefWidth="1159.0" title="Monthly revenue chart">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                             <cursor>
+                                                <Cursor fx:constant="NONE" />
+                                             </cursor>
+                                          </BarChart>
+                                          <TableView fx:id="tvRevenue1" layoutX="34.0" layoutY="453.0" prefHeight="262.0" prefWidth="1106.0">
+                                             <columns>
+                                                <TableColumn fx:id="MonthRevenue" prefWidth="181.60009765625" style="-fx-alignment: center;" text="Month" />
+                                                <TableColumn fx:id="FundsColFundMonth" minWidth="7.9998779296875" prefWidth="294.3998718261719" style="-fx-alignment: center;" text="Funds" />
+                                                <TableColumn fx:id="RevenueColRevenueMonth" minWidth="1.5999755859375" prefWidth="298.4000244140625" style="-fx-alignment: center;" text="Revenue" />
+                                                <TableColumn fx:id="ProfitColRevenueMonth" minWidth="0.0" prefWidth="273.5999511718751" style="-fx-alignment: center;" text="Profit" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                            </Tab>
+                              <Tab text="Statistics for each day of the month">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutY="12.0" prefHeight="60.0" prefWidth="1159.0" spacing="20.0">
+                                             <children>
+                                                <Label layoutX="332.0" layoutY="32.0" text="Choice Month" />
+                                                <Spinner fx:id="ChoiceMonthSpinner" editable="true" onMouseExited="#handleChoiceYearStaticsRevenue" />
+                                                <Label text="Choice Year" />
+                                                <Spinner fx:id="ChoiceYearSpinner3" editable="true" layoutX="512.0" layoutY="28.0" onMouseExited="#handleChoiceYearStaticsRevenue" />
+                                                <Button mnemonicParsing="false" text="Export Excel" />
+                                                <Button layoutX="808.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleStatisticsforDay" text="Statics" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </HBox>
+                                          <BarChart fx:id="BarChartForMonth1" animated="false" barGap="3.0" focusTraversable="true" layoutX="7.0" layoutY="62.0" onMouseExited="#handleChoiceYearStaticsRevenue" prefHeight="376.0" prefWidth="1159.0" title=" Day in Month Revenie">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                             <cursor>
+                                                <Cursor fx:constant="NONE" />
+                                             </cursor>
+                                          </BarChart>
+                                          <TableView fx:id="tvRevenue2" layoutX="34.0" layoutY="453.0" prefHeight="262.0" prefWidth="1106.0">
+                                             <columns>
+                                                <TableColumn fx:id="MonthRevenue1" prefWidth="181.60009765625" style="-fx-alignment: center;" text="Month" />
+                                                <TableColumn fx:id="FundsColFundMonth1" minWidth="7.9998779296875" prefWidth="294.3998718261719" style="-fx-alignment: center;" text="Funds" />
+                                                <TableColumn fx:id="RevenueColRevenueMonth1" minWidth="1.5999755859375" prefWidth="298.4000244140625" style="-fx-alignment: center;" text="Revenue" />
+                                                <TableColumn fx:id="ProfitColRevenueMonth1" minWidth="0.0" prefWidth="273.5999511718751" style="-fx-alignment: center;" text="Profit" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Statistics from day to day">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1159.0" spacing="20.0">
+                                             <children>
+                                                <Label layoutX="332.0" layoutY="32.0" text="From" />
+                                                <DatePicker fx:id="DatePickerDateFrom" promptText="Choice Date" />
+                                                <Label text="To" />
+                                                <DatePicker fx:id="DatePickerDateTo" promptText="Choice Date" />
+                                                <Button mnemonicParsing="false" text="Export Excel" />
+                                                <Button layoutX="808.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleRevenueDaytoDay" text="Statics" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </HBox>
+                                          <TableView fx:id="tvRevenue3" layoutX="43.0" layoutY="72.0" prefHeight="666.0" prefWidth="1026.0">
+                                             <columns>
+                                                <TableColumn fx:id="MonthRevenue11" prefWidth="261.60001850128174" style="-fx-alignment: center;" text="Date" />
+                                                <TableColumn fx:id="FundsColFundMonth11" minWidth="7.9998779296875" prefWidth="246.4000244140625" style="-fx-alignment: center;" text="Funds" />
+                                                <TableColumn fx:id="RevenueColRevenueMonth11" minWidth="1.5999755859375" prefWidth="284.00006103515625" style="-fx-alignment: center;" text="Revenue" />
+                                                <TableColumn fx:id="ProfitColRevenueMonth11" minWidth="0.0" prefWidth="231.99981689453125" style="-fx-alignment: center;" text="Profit" />
+                                             </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="Supplier">
