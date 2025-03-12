@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
-    <!-- Define Persistence Unit -->
-    <persistence-unit name="my_persistence_unit">
-        
-    </persistence-unit>
+  <!-- Define Persistence Unit -->
+  <persistence-unit name="my_persistence_unit">
+    <class>fpt.aptech.miniproject.models.Roles</class>
+    <class>fpt.aptech.miniproject.models.Books</class>
+    <class>fpt.aptech.miniproject.models.Reviews</class>
+    <class>fpt.aptech.miniproject.models.Users</class>
+    <class>fpt.aptech.miniproject.models.Publishers</class>
+  </persistence-unit>
+  <properties>
+         <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:sqlserver://LAPTOP-7EPRO5R2:1433;databaseName=miniProject_WCD;TrustServerCertificate=true"/>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="jakarta.persistence.jdbc.user"
+                      value="sa"/>
+            <property name="jakarta.persistence.jdbc.password"
+                        value="28032000"/>
+  </properties>
+  
 </persistence>
