@@ -39,7 +39,7 @@ public class Publishers implements Serializable {
     @Column(name = "publisherId")
     private Integer publisherId;
     @Basic(optional = false)
-    @Column(name = "name")
+    @Column(name = "name")  
     private String name;
     @Basic(optional = false)
     @Column(name = "email")
