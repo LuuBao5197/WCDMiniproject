@@ -30,17 +30,17 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>/Publishers/index.jsp</welcome-file>
     </welcome-file-list>
-    <error-page>
+<!--    <error-page>
         <error-code>401</error-code>
         <location>/error.html</location>
-    </error-page>
+    </error-page>-->
     <login-config>
         <auth-method>FORM</auth-method>
         <form-login-config>
             <form-login-page>/login.jsp</form-login-page>
-            <form-error-page>/error.html</form-error-page>
+<!--            <form-error-page>/error.html</form-error-page>-->
         </form-login-config>
     </login-config>
     <security-role>

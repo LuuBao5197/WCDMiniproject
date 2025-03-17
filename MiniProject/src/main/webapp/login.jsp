@@ -3,20 +3,33 @@
     Created on : Mar 14, 2025, 1:10:48 PM
     Author     : kyanh
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Login Page</title>
-</head>
-<body>
-    <form action="login" method="post">
-        Username: <input type="text" name="j_username" /><br/>
-        Email: <input type="text" name="j_email" /><br/>
-        <input type="submit" value="Login" />
-    </form>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="styles.css"> 
+    </head>
+    <body>
+        <div class="container">
+            <h2>Login</h2>
+
+            <c:if test="${not empty errorMessage}">
+                <div class="error-message">${errorMessage}</div>
+            </c:if>
+
+            <form action="/login" method="POST">
+                <input type="text" name="j_username" id="username" placeholder="Username" required>
+                <input type="password" name="j_password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <a href="#" class="forgot-password">Forgot password?</a>
+        </div>
+    </body>
 </html>
+
 
 
