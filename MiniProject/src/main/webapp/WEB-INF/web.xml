@@ -12,6 +12,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>fpt.aptech.miniproject.controller.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PublisherServlet</servlet-name>
+        <servlet-class>fpt.aptech.miniproject.controller.PublisherServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/HomeServlet</url-pattern>
@@ -24,13 +28,17 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PublisherServlet</servlet-name>
+        <url-pattern>/PublisherServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>header.jsp</welcome-file>
     </welcome-file-list>
     <error-page>
         <error-code>401</error-code>
