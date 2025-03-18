@@ -47,8 +47,6 @@ public class Publishers implements Serializable {
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
-    @Column(name = "password")
-    private String password;
     @Basic(optional = false)
     @Column(name = "email")
     private String email;
@@ -64,10 +62,9 @@ public class Publishers implements Serializable {
         this.publisherId = publisherId;
     }
 
-    public Publishers(Integer publisherId, String name, String email, String password) {
+    public Publishers(Integer publisherId, String name, String email) {
         this.publisherId = publisherId;
         this.name = name;
-        this.password = password;
         this.email = email;
     }
 
@@ -85,14 +82,6 @@ public class Publishers implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public String getEmail() {

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet("/login")
+//@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
     @PersistenceContext(unitName = "miniProject")
@@ -48,10 +48,10 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
                 session.setAttribute("roleId", role);  
-                response.sendRedirect("/Publishers/index.jsp");
+                response.sendRedirect("PublisherServlet");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ServletException | IOException e) {
+            System.out.println(e.getMessage());
             request.setAttribute("errorMessage", "An error occurred. Please try again.");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("Can't find account: " + username);
             return null;  
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             return null;  
         }
     }

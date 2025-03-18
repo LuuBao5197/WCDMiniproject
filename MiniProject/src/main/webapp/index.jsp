@@ -21,6 +21,7 @@
             <table class="table table-stripped">
                 <thead>
                     <tr>
+                        <th>Selected</th>
                         <th>Id</th>
                         <th>Title</th>
                         <th>Author</th>
@@ -33,8 +34,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                <form action="PublisherServlet" method="post">
                     <c:forEach var="item" items="${list}">
                         <tr>
+                            <td>
+                                <input type="checkbox" value="${item.getBookId()}" name="del"/>
+                            </td>
                             <td> ${item.getBookId()}</td>
                             <td> ${item.getTitle()}</td>
                             <td> ${item.getAuthor()}</td>
@@ -51,6 +56,12 @@
                         </tr>
 
                     </c:forEach>
+                    <tr>
+                        <td colspan="8" align="left">
+                            <input type="submit" value="Delete" name="action" onclick="return confirm('Are you sure to delete')"/>
+                        </td>
+                    </tr>
+                </form>
                 </tbody>
 
             </table>

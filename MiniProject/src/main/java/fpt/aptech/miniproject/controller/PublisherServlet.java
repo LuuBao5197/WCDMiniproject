@@ -43,9 +43,7 @@ public class PublisherServlet extends HttpServlet {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 switch (action) {
-
                     case "Create":
-
                         String title = request.getParameter("txtTitle");
                         String genre = request.getParameter("txtGenre");
                         String author = request.getParameter("txtAuthor");
@@ -86,9 +84,16 @@ public class PublisherServlet extends HttpServlet {
 
                         }
                         break;
-
+                    case "Delete":
+                        for (String object : request.getParameterValues("del")) {
+                            int nId = Integer.parseInt(object);
+                            dao.deleteObject(nId);
+                        }
+                        response.sendRedirect("PublisherServlet");
+                        break;
                     default:
                         throw new AssertionError();
+
                 }
             }
 
