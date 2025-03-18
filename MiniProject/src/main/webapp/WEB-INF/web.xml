@@ -15,6 +15,8 @@
     <servlet>
         <servlet-name>DeleteBookServlet</servlet-name>
         <servlet-class>fpt.aptech.miniproject.controller.DeleteBookServlet</servlet-class>
+        <servlet-name>PublisherServlet</servlet-name>
+        <servlet-class>fpt.aptech.miniproject.controller.PublisherServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
@@ -38,7 +40,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>DeleteBookServlet</welcome-file>
+        <welcome-file>header.jsp</welcome-file>
     </welcome-file-list>
     <error-page>
         <error-code>401</error-code>

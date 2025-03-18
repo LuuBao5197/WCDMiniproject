@@ -58,10 +58,39 @@ public class Books implements Serializable {
     private List<Reviews> reviewsList;
     @JoinColumn(name = "publisherId", referencedColumnName = "publisherId")
     @ManyToOne(optional = false)
-    private Publishers publisherId;
+private Publishers publisherId;
 
     public Books() {
     }
+
+    public Books(String title, String author, Integer edition, String genre, String photo, List<Reviews> reviewsList, Publishers publisherId) {
+        this.title = title;
+        this.author = author;
+        this.edition = edition;
+        this.genre = genre;
+        this.photo = photo;
+        this.reviewsList = reviewsList;
+        this.publisherId = publisherId;
+    }
+
+    public Books(String title, String author, Integer edition, String genre, String photo) {
+        this.title = title;
+        this.author = author;
+        this.edition = edition;
+        this.genre = genre;
+        this.photo = photo;
+    }
+
+    public Books(String title, String author, Integer edition, String genre, String photo, Publishers publisher) {
+        this.title = title;
+        this.author = author;
+        this.edition = edition;
+        this.genre = genre;
+        this.photo = photo;
+        this.publisherId = publisher;
+    }
+    
+    
 
     public Books(Integer bookId) {
         this.bookId = bookId;
@@ -137,29 +166,4 @@ public class Books implements Serializable {
         this.publisherId = publisherId;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (bookId != null ? bookId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Books)) {
-            return false;
-        }
-        Books other = (Books) object;
-        if ((this.bookId == null && other.bookId != null) || (this.bookId != null && !this.bookId.equals(other.bookId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "fpt.aptech.miniproject.models.Books[ bookId=" + bookId + " ]";
-    }
-    
 }
