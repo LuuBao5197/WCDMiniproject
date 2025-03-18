@@ -38,17 +38,9 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
+        <welcome-file>/Publishers/index.jsp</welcome-file>
         <welcome-file>DeleteBookServlet</welcome-file>
     </welcome-file-list>
-    <error-page>
-        <error-code>401</error-code>
-        <location>/error.html</location>
-    </error-page>
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <form-login-config>
-            <form-login-page>/login.jsp</form-login-page>
-            <form-error-page>/error.html</form-error-page>
         </form-login-config>
     </login-config>
     <security-role>

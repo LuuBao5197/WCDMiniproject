@@ -17,7 +17,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
-
 /**
  *
  * @author Luu Bao
@@ -39,8 +38,10 @@ public class Publishers implements Serializable {
     @Column(name = "publisherId")
     private Integer publisherId;
     @Basic(optional = false)
-    @Column(name = "name")  
+    @Column(name = "name")
     private String name;
+    @Column(name = "password")
+    private String password;
     @Basic(optional = false)
     @Column(name = "email")
     private String email;
@@ -56,9 +57,10 @@ public class Publishers implements Serializable {
         this.publisherId = publisherId;
     }
 
-    public Publishers(Integer publisherId, String name, String email) {
+    public Publishers(Integer publisherId, String name, String email, String password) {
         this.publisherId = publisherId;
         this.name = name;
+        this.password = password;
         this.email = email;
     }
 
@@ -76,6 +78,14 @@ public class Publishers implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getEmail() {
@@ -111,7 +121,6 @@ public class Publishers implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Publishers)) {
             return false;
         }
@@ -126,5 +135,5 @@ public class Publishers implements Serializable {
     public String toString() {
         return "fpt.aptech.miniproject.models.Publishers[ publisherId=" + publisherId + " ]";
     }
-    
+
 }

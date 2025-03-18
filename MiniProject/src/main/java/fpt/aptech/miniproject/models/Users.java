@@ -17,6 +17,8 @@ import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -40,8 +42,12 @@ public class Users implements Serializable {
     @Column(name = "userId")
     private Integer userId;
     @Basic(optional = false)
+    @NotEmpty(message = "Username can't be empty!")
     @Column(name = "username")
     private String username;
+    @NotEmpty(message = "Password can't be empty!")
+    @Column (name = "password")
+    private String password;
     @Column(name = "email")
     private String email;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
@@ -57,9 +63,10 @@ public class Users implements Serializable {
         this.userId = userId;
     }
 
-    public Users(Integer userId, String username) {
+    public Users(Integer userId, String username, String password) {
         this.userId = userId;
         this.username = username;
+        this.password = password;
     }
 
     public Integer getUserId() {
@@ -76,6 +83,14 @@ public class Users implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getEmail() {
