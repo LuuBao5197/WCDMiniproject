@@ -11,6 +11,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
@@ -28,8 +30,13 @@ import java.util.List;
     @NamedQuery(name = "Publishers.findByPublisherId", query = "SELECT p FROM Publishers p WHERE p.publisherId = :publisherId"),
     @NamedQuery(name = "Publishers.findByName", query = "SELECT p FROM Publishers p WHERE p.name = :name"),
     @NamedQuery(name = "Publishers.findByEmail", query = "SELECT p FROM Publishers p WHERE p.email = :email"),
+    @NamedQuery(name = "Publishers.findByUserId", query = "SELECT p FROM Publishers p WHERE p.userId.userId = :userId"),
     @NamedQuery(name = "Publishers.findByWebsite", query = "SELECT p FROM Publishers p WHERE p.website = :website")})
 public class Publishers implements Serializable {
+
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    @ManyToOne(optional = false)
+    private Users userId;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -112,28 +119,14 @@ public class Publishers implements Serializable {
         this.booksList = booksList;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (publisherId != null ? publisherId.hashCode() : 0);
-        return hash;
+
+    public Users getUserId() {
+        return userId;
+
     }
 
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Publishers)) {
-            return false;
-        }
-        Publishers other = (Publishers) object;
-        if ((this.publisherId == null && other.publisherId != null) || (this.publisherId != null && !this.publisherId.equals(other.publisherId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "fpt.aptech.miniproject.models.Publishers[ publisherId=" + publisherId + " ]";
+    public void setUserId(Users userId) {
+        this.userId = userId;
     }
 
 }

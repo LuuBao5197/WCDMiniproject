@@ -13,6 +13,8 @@
         <servlet-class>fpt.aptech.miniproject.controller.LoginServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>PublisherServlet</servlet-name>
+        <servlet-class>fpt.aptech.miniproject.controller.PublisherServlet</servlet-class>
         <servlet-name>DeleteBookServlet</servlet-name>
         <servlet-class>fpt.aptech.miniproject.controller.DeleteBookServlet</servlet-class>
     </servlet>
@@ -29,6 +31,8 @@
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>PublisherServlet</servlet-name>
+        <url-pattern>/PublisherServlet</url-pattern>
         <servlet-name>DeleteBookServlet</servlet-name>
         <url-pattern>/DeleteBookServlet</url-pattern>
     </servlet-mapping>
@@ -38,8 +42,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>/Publishers/index.jsp</welcome-file>
-        <welcome-file>DeleteBookServlet</welcome-file>
+        <welcome-file>header.jsp</welcome-file>
     </welcome-file-list>
         </form-login-config>
     </login-config>

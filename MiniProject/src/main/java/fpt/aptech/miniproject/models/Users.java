@@ -35,6 +35,12 @@ import java.util.List;
     @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")})
 public class Users implements Serializable {
 
+    @Basic(optional = false)
+    @Column(name = "password")
+    private String password;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    private List<Publishers> publishersList;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -140,6 +146,22 @@ public class Users implements Serializable {
     @Override
     public String toString() {
         return "fpt.aptech.miniproject.models.Users[ userId=" + userId + " ]";
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Publishers> getPublishersList() {
+        return publishersList;
+    }
+
+    public void setPublishersList(List<Publishers> publishersList) {
+        this.publishersList = publishersList;
     }
     
 }
