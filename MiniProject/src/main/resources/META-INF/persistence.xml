@@ -13,7 +13,7 @@
         
         <properties>
             <property name="jakarta.persistence.jdbc.url" 
-                      value="jdbc:sqlserver://REQUIN\\MSSQLSERVER01:1433;databaseName=miniProject_WCD;TrustServerCertificate=true"/>
+                      value="jdbc:sqlserver://LAPTOP-VAUQ7QIP\\MSSQLSERVER01:1433;databaseName=miniProject_WCD;TrustServerCertificate=true"/>
             <property name="jakarta.persistence.jdbc.driver" 
                       value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
             <property name="jakarta.persistence.jdbc.user" 

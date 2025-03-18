@@ -12,6 +12,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>fpt.aptech.miniproject.controller.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <servlet-class>fpt.aptech.miniproject.controller.DeleteBookServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/HomeServlet</url-pattern>
@@ -24,6 +28,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <url-pattern>/DeleteBookServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -31,16 +39,8 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>/Publishers/index.jsp</welcome-file>
+        <welcome-file>DeleteBookServlet</welcome-file>
     </welcome-file-list>
-<!--    <error-page>
-        <error-code>401</error-code>
-        <location>/error.html</location>
-    </error-page>-->
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <form-login-config>
-            <form-login-page>/login.jsp</form-login-page>
-<!--            <form-error-page>/error.html</form-error-page>-->
         </form-login-config>
     </login-config>
     <security-role>
