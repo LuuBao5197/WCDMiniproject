@@ -38,17 +38,17 @@
                     <c:forEach var="item" items="${list}">
                         <tr>
                             <td>
-                                <input type="checkbox" value="${item.getBookId()}" name="del"/>
+                                <c:if test="${empty item.reviewsList}">
+                                    <input type="checkbox" value="${item.getBookId()}" name="del"/>
+                                </c:if>
                             </td>
+
                             <td> ${item.getBookId()}</td>
                             <td> ${item.getTitle()}</td>
                             <td> ${item.getAuthor()}</td>
                             <td> ${item.getEdition()}</td>
                             <td> ${item.getGenre()}</td>
-                            <td>
-                                <img src="images/${item.getPhoto()}" width="100"/>
-                            </td>
-                            <td> ${item.getPublisherId().getName()}</td>
+
                             <td>
 
                             </td>
