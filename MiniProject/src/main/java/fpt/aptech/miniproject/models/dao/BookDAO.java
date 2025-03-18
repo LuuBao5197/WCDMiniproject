@@ -87,12 +87,15 @@ public class BookDAO implements RepositoryDAO<Books>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
+   @Override
     public void deleteObject(int id) {
              try {
             em.getTransaction().begin();
             Books book = em.createNamedQuery("Books.findByBookId",Books.class)
                     .setParameter("bookId", id).getSingleResult();
+                 if (book.getReviewsList() != null) {
+                     return;
+                 }
             em.remove(book);
             em.getTransaction().commit();
         } catch (Exception e) {
