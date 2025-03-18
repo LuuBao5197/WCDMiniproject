@@ -20,7 +20,7 @@
                 <div class="error-message">${errorMessage}</div>
             </c:if>
 
-            <form action="/login" method="POST">
+            <form action="LoginServlet" method="POST">
                 <input type="text" name="j_username" id="username" placeholder="Username" required>
                 <input type="password" name="j_password" id="password" placeholder="Password" required>
                 <button type="submit">Login</button>

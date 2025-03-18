@@ -6,6 +6,7 @@ package fpt.aptech.miniproject.models.dao;
 
 import fpt.aptech.miniproject.models.Books;
 import fpt.aptech.miniproject.models.Publishers;
+import fpt.aptech.miniproject.repository.RepositoryDAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -15,7 +16,7 @@ import java.util.List;
  *
  * @author Luu Bao
  */
-public class BookDAO {
+public class BookDAO implements RepositoryDAO<Books>{
 
     EntityManagerFactory emf;
     EntityManager em;
@@ -64,6 +65,40 @@ public class BookDAO {
 
     public List<Books> getBooks() {
         return em.createNamedQuery("Books.findAll",Books.class).getResultList();
+    }
+
+    @Override
+    public List<Books> findAll() {
+             return em.createNamedQuery("Books.findAll",Books.class).getResultList();
+    }
+
+    @Override
+    public Books findOne(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void saveObject(Books newObject) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void updateObject(Books editObject) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void deleteObject(int id) {
+             try {
+            em.getTransaction().begin();
+            Books book = em.createNamedQuery("Books.findByBookId",Books.class)
+                    .setParameter("bookId", id).getSingleResult();
+            em.remove(book);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            em.getTransaction().rollback();
+        }
     }
 
 }
