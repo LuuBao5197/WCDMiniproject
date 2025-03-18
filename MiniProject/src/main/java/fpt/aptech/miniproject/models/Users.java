@@ -36,6 +36,7 @@ import java.util.List;
 public class Users implements Serializable {
 
     @Basic(optional = false)
+    @NotEmpty(message = "Password can't be empty!")
     @Column(name = "password")
     private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
@@ -51,9 +52,7 @@ public class Users implements Serializable {
     @NotEmpty(message = "Username can't be empty!")
     @Column(name = "username")
     private String username;
-    @NotEmpty(message = "Password can't be empty!")
-    @Column (name = "password")
-    private String password;
+
     @Column(name = "email")
     private String email;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
@@ -148,14 +147,6 @@ public class Users implements Serializable {
         return "fpt.aptech.miniproject.models.Users[ userId=" + userId + " ]";
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public List<Publishers> getPublishersList() {
         return publishersList;
     }
@@ -163,5 +154,5 @@ public class Users implements Serializable {
     public void setPublishersList(List<Publishers> publishersList) {
         this.publishersList = publishersList;
     }
-    
+
 }

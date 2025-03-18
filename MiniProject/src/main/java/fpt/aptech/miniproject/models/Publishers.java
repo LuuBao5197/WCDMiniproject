@@ -128,5 +128,5 @@ public class Publishers implements Serializable {
     public void setUserId(Users userId) {
         this.userId = userId;
     }
-
+    
 }
