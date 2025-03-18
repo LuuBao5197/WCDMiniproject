@@ -13,10 +13,12 @@
         <servlet-class>fpt.aptech.miniproject.controller.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteBookServlet</servlet-name>
-        <servlet-class>fpt.aptech.miniproject.controller.DeleteBookServlet</servlet-class>
         <servlet-name>PublisherServlet</servlet-name>
         <servlet-class>fpt.aptech.miniproject.controller.PublisherServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <servlet-class>fpt.aptech.miniproject.controller.DeleteBookServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
@@ -31,6 +33,10 @@
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>PublisherServlet</servlet-name>
+        <url-pattern>/PublisherServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>DeleteBookServlet</servlet-name>
         <url-pattern>/DeleteBookServlet</url-pattern>
     </servlet-mapping>
@@ -42,19 +48,4 @@
     <welcome-file-list>
         <welcome-file>header.jsp</welcome-file>
     </welcome-file-list>
-    <error-page>
-        <error-code>401</error-code>
-        <location>/error.html</location>
-    </error-page>
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <form-login-config>
-            <form-login-page>/login.jsp</form-login-page>
-            <form-error-page>/error.html</form-error-page>
-        </form-login-config>
-    </login-config>
-    <security-role>
-        <description/>
-        <role-name>Publisher</role-name>
-    </security-role>
 </web-app>

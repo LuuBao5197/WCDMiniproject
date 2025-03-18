@@ -6,11 +6,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceContext;
 import jakarta.servlet.ServletException;
+import jakarta.validation.Valid;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,66 +24,60 @@ public class LoginServlet extends HttpServlet {
     private EntityManager em;
     private EntityManagerFactory emf;
 
-    // This method handles GET requests (e.g., showing the login page)
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Redirect to the login page (or just forward to a JSP)
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
-    }
-
-    // This method handles POST requests (e.g., handling the login form submission)
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("j_username");
-        String email = request.getParameter("j_email");
+        String password = request.getParameter("j_password");
 
-        // Log the received form values
-        System.out.println("Username: " + username);
-        System.out.println("Email: " + email);
+        if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
+            request.setAttribute("errorMessage", "Username and Password cannot be empty!");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            return;
+        }
 
         try {
             emf = Persistence.createEntityManagerFactory("miniProject");
             em = emf.createEntityManager();
 
-            int roleId = getUserRoleFromDatabase(username, email);
+            Roles role = getUserRoleFromDatabase(username, password);
 
-            // Log the roleId value
-            System.out.println("Role ID: " + roleId);
-
-            if (roleId == 3) {
-                // Save user info in the session
+            if (role == null) {
+                request.setAttribute("errorMessage", "Invalid username or password!");
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
+            } else {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
-                session.setAttribute("roleId", roleId);
-
-                // Redirect to the publisher page
+                session.setAttribute("roleId", role);  
                 response.sendRedirect("/Publishers/index.jsp");
-            } else {
-                response.sendRedirect("error.html");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.html");  // Redirect to error page if something goes wrong
+            request.setAttribute("errorMessage", "An error occurred. Please try again.");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
     }
 
-    private int getUserRoleFromDatabase(String username, String email) {
+    private Roles getUserRoleFromDatabase(@Valid String username, String password) {
         try {
-            String query = "SELECT u.roleId FROM Users u WHERE u.username = :username AND u.email = :email";
+            String query = "SELECT u.roleId FROM Users u WHERE u.username = :username AND u.password = :password";
+
             Roles role = (Roles) em.createQuery(query)
                     .setParameter("username", username)
-                    .setParameter("email", email)
-                    .getSingleResult();  // Return the Roles object
+                    .setParameter("password", password)
+                    .getSingleResult();
 
             if (role != null) {
-                return role.getRoleId();  // Return roleId from the Roles object
+                return role;  
             } else {
-                System.out.println("Role is null for the provided username and email.");
-                return -1;  // Return -1 if role not found
+                System.out.println("No role found for the provided username and password.");
+                return null;  
             }
+        } catch (NoResultException e) {
+            System.out.println("Can't find account: " + username);
+            return null;  
         } catch (Exception e) {
             e.printStackTrace();
-            return -1;  // Return -1 if error occurs
+            return null;  
         }
     }
 }

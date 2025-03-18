@@ -17,6 +17,8 @@ import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -34,6 +36,7 @@ import java.util.List;
 public class Users implements Serializable {
 
     @Basic(optional = false)
+    @NotEmpty(message = "Password can't be empty!")
     @Column(name = "password")
     private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
@@ -46,8 +49,10 @@ public class Users implements Serializable {
     @Column(name = "userId")
     private Integer userId;
     @Basic(optional = false)
+    @NotEmpty(message = "Username can't be empty!")
     @Column(name = "username")
     private String username;
+
     @Column(name = "email")
     private String email;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
@@ -63,9 +68,10 @@ public class Users implements Serializable {
         this.userId = userId;
     }
 
-    public Users(Integer userId, String username) {
+    public Users(Integer userId, String username, String password) {
         this.userId = userId;
         this.username = username;
+        this.password = password;
     }
 
     public Integer getUserId() {
@@ -82,6 +88,14 @@ public class Users implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getEmail() {
@@ -133,14 +147,6 @@ public class Users implements Serializable {
         return "fpt.aptech.miniproject.models.Users[ userId=" + userId + " ]";
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public List<Publishers> getPublishersList() {
         return publishersList;
     }
@@ -148,5 +154,5 @@ public class Users implements Serializable {
     public void setPublishersList(List<Publishers> publishersList) {
         this.publishersList = publishersList;
     }
-    
+
 }
