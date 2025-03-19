@@ -1,6 +1,10 @@
 package fpt.aptech.miniproject.controller;
 
+import fpt.aptech.miniproject.models.Publishers;
 import fpt.aptech.miniproject.models.Roles;
+import fpt.aptech.miniproject.models.Users;
+import fpt.aptech.miniproject.models.dao.BookDAO;
+import fpt.aptech.miniproject.models.dao.UsesDAO;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -20,64 +24,45 @@ import java.util.logging.Logger;
 //@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
-    @PersistenceContext(unitName = "miniProject")
-    private EntityManager em;
-    private EntityManagerFactory emf;
+    UsesDAO dao;
+    BookDAO bdao;
+
+    public LoginServlet() {
+        dao = new UsesDAO();
+        bdao = new BookDAO();
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("j_username");
         String password = request.getParameter("j_password");
 
-        if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
-            request.setAttribute("errorMessage", "Username and Password cannot be empty!");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
-            return;
-        }
-
         try {
-            emf = Persistence.createEntityManagerFactory("miniProject");
-            em = emf.createEntityManager();
+            if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
+                request.setAttribute("errorMessage", "Username and Password cannot be empty!");
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
+                return;
+            }
+            Users user = dao.checkLogin(username, password);
 
-            Roles role = getUserRoleFromDatabase(username, password);
-
-            if (role == null) {
+            if (user == null) {
                 request.setAttribute("errorMessage", "Invalid username or password!");
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             } else {
-                HttpSession session = request.getSession();
-                session.setAttribute("username", username);
-                session.setAttribute("roleId", role);  
-                response.sendRedirect("PublisherServlet");
+                if ("Publisher".equals(user.getRoleId().getRoleName())) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("uLogin", user);
+                    Publishers p = bdao.findOnePublisher(user.getUserId());
+                    session.setAttribute("publisher", p);
+                    response.sendRedirect("PublisherServlet");
+                }
             }
         } catch (ServletException | IOException e) {
             System.out.println(e.getMessage());
             request.setAttribute("errorMessage", "An error occurred. Please try again.");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
-    }
 
-    private Roles getUserRoleFromDatabase(@Valid String username, String password) {
-        try {
-            String query = "SELECT u.roleId FROM Users u WHERE u.username = :username AND u.password = :password";
 
-            Roles role = (Roles) em.createQuery(query)
-                    .setParameter("username", username)
-                    .setParameter("password", password)
-                    .getSingleResult();
-
-            if (role != null) {
-                return role;  
-            } else {
-                System.out.println("No role found for the provided username and password.");
-                return null;  
-            }
-        } catch (NoResultException e) {
-            System.out.println("Can't find account: " + username);
-            return null;  
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;  
-        }
     }
 }

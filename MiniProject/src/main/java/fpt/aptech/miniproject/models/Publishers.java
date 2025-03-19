@@ -43,7 +43,7 @@ public class Publishers implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "publisherId")
-    private Integer publisherId;
+        private Integer publisherId;
     @Basic(optional = false)
     @Column(name = "name")
     private String name;

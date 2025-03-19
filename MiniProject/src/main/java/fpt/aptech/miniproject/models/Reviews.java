@@ -27,6 +27,7 @@ import java.io.Serializable;
 @NamedQueries({
     @NamedQuery(name = "Reviews.findAll", query = "SELECT r FROM Reviews r"),
     @NamedQuery(name = "Reviews.findByReviewId", query = "SELECT r FROM Reviews r WHERE r.reviewId = :reviewId"),
+    @NamedQuery(name = "Reviews.findByBookId", query = "SELECT r FROM Reviews r WHERE r.bookId.bookId = :bookId"),
     @NamedQuery(name = "Reviews.findByRating", query = "SELECT r FROM Reviews r WHERE r.rating = :rating"),
     @NamedQuery(name = "Reviews.findByReviewDate", query = "SELECT r FROM Reviews r WHERE r.reviewDate = :reviewDate")})
 public class Reviews implements Serializable {
@@ -112,29 +113,4 @@ public class Reviews implements Serializable {
         this.userId = userId;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (reviewId != null ? reviewId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Reviews)) {
-            return false;
-        }
-        Reviews other = (Reviews) object;
-        if ((this.reviewId == null && other.reviewId != null) || (this.reviewId != null && !this.reviewId.equals(other.reviewId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "fpt.aptech.miniproject.models.Reviews[ reviewId=" + reviewId + " ]";
-    }
-    
 }

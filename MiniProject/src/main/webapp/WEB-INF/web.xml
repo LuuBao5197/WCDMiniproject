@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-    <servlet>
-        <servlet-name>HomeServlet</servlet-name>
-        <servlet-class>fpt.aptech.miniproject.controller.HomeServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ReviewServlet</servlet-name>
-        <servlet-class>fpt.aptech.miniproject.controller.ReviewServlet</servlet-class>
-    </servlet>
+
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>fpt.aptech.miniproject.controller.LoginServlet</servlet-class>
@@ -16,18 +9,6 @@
         <servlet-name>PublisherServlet</servlet-name>
         <servlet-class>fpt.aptech.miniproject.controller.PublisherServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>DeleteBookServlet</servlet-name>
-        <servlet-class>fpt.aptech.miniproject.controller.DeleteBookServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HomeServlet</servlet-name>
-        <url-pattern>/HomeServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ReviewServlet</servlet-name>
-        <url-pattern>/ReviewServlet</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -35,10 +16,6 @@
     <servlet-mapping>
         <servlet-name>PublisherServlet</servlet-name>
         <url-pattern>/PublisherServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeleteBookServlet</servlet-name>
-        <url-pattern>/DeleteBookServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
