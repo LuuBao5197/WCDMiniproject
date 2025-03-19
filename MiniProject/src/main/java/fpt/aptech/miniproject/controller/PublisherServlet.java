@@ -5,6 +5,8 @@
 package fpt.aptech.miniproject.controller;
 
 import fpt.aptech.miniproject.models.Books;
+import fpt.aptech.miniproject.models.RatingsBook;
+import fpt.aptech.miniproject.models.Users;
 import fpt.aptech.miniproject.models.dao.BookDAO;
 import fpt.aptech.miniproject.ultis.FileUltis;
 import java.io.IOException;
@@ -14,6 +16,7 @@ import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -37,12 +40,37 @@ public class PublisherServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String action = request.getParameter("action");
+            HttpSession session = request.getSession(false); // Không tạo session mới nếu chưa có
+            Users u = (session != null) ? (Users) session.getAttribute("uLogin") : null;
+            if(u == null){
+                response.sendRedirect("/login.jsp");
+                return;
+            }
             if (null == action) {
                 List<Books> bList = dao.getBooks();
                 request.setAttribute("list", bList);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.setAttribute("page", "index.jsp");
+                request.getRequestDispatcher("header.jsp").forward(request, response);
             } else {
                 switch (action) {
+                    case "Upload":
+                        List<Books> bList = dao.getBooks();
+                        request.setAttribute("list", bList);
+                        request.setAttribute("page", "uploadBook.jsp");
+                        request.getRequestDispatcher("header.jsp").forward(request, response);
+                        break;
+                    case "Rating":
+                        List<RatingsBook> rList = dao.getRatingBooks();
+                        request.setAttribute("rList", rList);
+                        request.setAttribute("page", "ratingList.jsp");
+                        request.getRequestDispatcher("header.jsp").forward(request, response);
+                        break;
+                    case "Feedback":
+                        int bookId = Integer.parseInt(request.getParameter("bookId"));
+                        request.setAttribute("fList", dao.getReviewBookById(bookId));
+                        request.setAttribute("page", "feedbackList.jsp");
+                        request.getRequestDispatcher("header.jsp").forward(request, response);
+                        break;
                     case "Create":
                         String title = request.getParameter("txtTitle");
                         String genre = request.getParameter("txtGenre");
@@ -50,16 +78,14 @@ public class PublisherServlet extends HttpServlet {
                         String edition = request.getParameter("txtEdition");
                         int nEdition = Integer.parseInt(edition);
                         String userId = request.getParameter("txtPublisher");
-                        Integer nUserId = Integer.valueOf(userId);
+                        int nUserId = Integer.parseInt(userId);
                         Part p = request.getPart("file");
 
                         if (p != null) {
                             String fileName = p.getSubmittedFileName();
                             String uniqueFileName = FileUltis.generateUniqueFileName(fileName);
                             Books b = new Books(title, author, nEdition, genre, uniqueFileName);
-
                             int row = dao.saveBook(b, nUserId);
-
                             if (row == 1) {
                                 // Luu file vao thu muc 
                                 try {
@@ -72,6 +98,8 @@ public class PublisherServlet extends HttpServlet {
                                     os.write(data);
 
                                     is.close();
+                                    response.sendRedirect("PublisherServlet");
+                                    return;
 
                                 } catch (IOException e) {
                                     System.out.println(e.getMessage());
@@ -80,7 +108,7 @@ public class PublisherServlet extends HttpServlet {
                             } else {
 
                             }
-                            response.sendRedirect("PublisherServlet");
+//                            response.sendRedirect("PublisherServlet");
 
                         }
                         break;
@@ -90,6 +118,7 @@ public class PublisherServlet extends HttpServlet {
                             dao.deleteObject(nId);
                         }
                         response.sendRedirect("PublisherServlet");
+                        
                         break;
                     default:
                         throw new AssertionError();

@@ -3,7 +3,7 @@
     Created on : Mar 15, 2025, 11:33:27 AM
     Author     : Luu Bao
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,7 +29,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <img src="https://kynguyenlamdep.com/wp-content/uploads/2022/06/avatar-cute-meo-con-than-chet-700x695.jpg" class="rounded-circle" width="50px"/>
-                                    <p class="">LuuBao</p>
+                                    <p>Welcome, ${sessionScope.uLogin.username}!</p>
+
                                 </div>
                                 <div class="col-md-6">
                                     <button class="btn btn-info">LOGOUT</button>
@@ -47,23 +48,20 @@
                         <div class="container-fluid">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Upload book review</a>
+                                    <a class="nav-link" href="PublisherServlet?action=Upload">Upload book review</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">List book review</a>
+                                    <a class="nav-link" href="PublisherServlet">List book review</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">View feed backs</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">View  Ratings</a>
+                                    <a class="nav-link" href="PublisherServlet?action=Rating"> View  Ratings</a>
                                 </li>
                             </ul>
                         </div>
                     </nav>
                 </div>
                 <div class="col-md-9">
-                    <jsp:include page="uploadBook.jsp"/>
+                    <jsp:include page="${page}"/>
 
 
                 </div>

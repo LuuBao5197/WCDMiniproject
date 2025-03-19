@@ -21,7 +21,7 @@
                 <label for="txtGenre" class="form-label">Genre</label>
                 <input type="text" class="form-control" id="txtGenre" name="txtGenre" placeholder="Enter Genre..." required>
             </div>
-            <input type="hidden" name="txtPublisher" value="4"/>
+            <input type="hidden" name="txtPublisher" value="${sessionScope.publisher.userId.userId}"/>
 
             <div class="mb-3">
                 <label for="file" class="form-label">Upload File</label>
