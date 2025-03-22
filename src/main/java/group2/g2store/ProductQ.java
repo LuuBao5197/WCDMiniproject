@@ -13,10 +13,16 @@ public class ProductQ {
     private String productName;
     private String productBrand;
     private String productCategory;
-    private int productPrice; // Thêm trường giá sản phẩm vào class Product
+    private int productPrice; // Thêm trường giá sản phẩm vào class ProductQ
     private String productImage; // Thêm trường hình ảnh sản phẩm
-    private int stockQuantity; // Thêm trường số lượng tồn kho vào class Product
     private int selectedQuantity; // Số lượng sản phẩm được chọn
+    private int TonkhoQuantity;
+
+    public void setTonkhoQuantity(int TonkhoQuantity) {
+        this.TonkhoQuantity = TonkhoQuantity;
+    }
+    
+    
 
     public ProductQ(String productName, String productBrand, String productImage, String productID, String productCategory) {
         this.productID = productID;
@@ -85,14 +91,6 @@ public class ProductQ {
         this.productImage = productImage;
     }
 
-    public int getStockQuantity() {
-        return stockQuantity;
-    }
-
-    public void setStockQuantity(int stockQuantity) {
-        this.stockQuantity = stockQuantity;
-    }
-
     public int getSelectedQuantity() {
         return selectedQuantity;
     }
@@ -100,4 +98,15 @@ public class ProductQ {
     public void setSelectedQuantity(int selectedQuantity) {
         this.selectedQuantity = selectedQuantity;
     }
+
+    public int getTonkhoQuantity() {
+        return TonkhoQuantity;
+    }
+
+    
+    @Override
+    public String toString() {
+        return "Product{" + "productID=" + productID + ", productName=" + productName + ", productPrice=" + productPrice + ", selectedQuantity=" + selectedQuantity + '}';
+    }
+
 }

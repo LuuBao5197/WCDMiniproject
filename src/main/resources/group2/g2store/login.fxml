@@ -1,62 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group2.g2store.LoginController">
    <children>
-      <SplitPane dividerPositions="0.5" prefHeight="400.0" prefWidth="600.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="322.0" style="-fx-background-color: #23d16f;">
-               <children>
-                  <Label layoutX="74.0" layoutY="234.0" text="LOGIN" textFill="#fafafa">
-                     <font>
-                        <Font name="System Bold" size="48.0" />
-                     </font>
-                  </Label>
-                  <FontAwesomeIcon fill="#f4efef" glyphName="USER" layoutX="81.0" layoutY="217.0" size="12em" />
-                 
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #040623;">
-               <children>
-                  <Button layoutX="59.0" layoutY="278.0" mnemonicParsing="false" onAction="#OnLogin" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: #23d16f;" text="login" textFill="#060826">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="24.0" layoutY="92.0" prefHeight="27.0" prefWidth="91.0" text="Username:" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="tfUser" layoutX="24.0" layoutY="133.0" prefHeight="0.0" prefWidth="248.0" />
-                  <Label layoutX="24.0" layoutY="171.0" prefHeight="0.0" prefWidth="91.0" text="Password:" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="tfPass" layoutX="24.0" layoutY="210.0" prefHeight="26.0" prefWidth="241.0" />
-                  <Button layoutX="133.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #23d16f;" text="cancel" textFill="#060826">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <CheckBox layoutX="23.0" layoutY="248.0" mnemonicParsing="false" text="Remember me" textFill="#f2eeee" />
-                  <Label layoutX="84.0" layoutY="320.0" text="Forgot Pasword ?" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
+      <AnchorPane layoutY="1.0" prefHeight="584.0" prefWidth="397.0" style="-fx-background-color: #19bde1;">
+         <children>
+            <Text fill="WHITE" layoutX="14.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME ">
+               <font>
+                  <Font name="System Bold" size="64.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="180.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To G2Store">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Text layoutX="438.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <TextField fx:id="pName" layoutX="440.0" layoutY="189.0" prefHeight="39.0" prefWidth="387.0" promptText="Enter username...">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="tfPass" layoutX="440.0" layoutY="272.0" prefHeight="39.0" prefWidth="387.0" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Text layoutX="439.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User name:">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text layoutX="440.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Button fx:id="OnLogin" layoutX="522.0" layoutY="361.0" mnemonicParsing="false" onAction="#OnLogin" prefHeight="44.0" prefWidth="224.0" style="-fx-background-color: #19bde1;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <CheckBox fx:id="cbRememberMe" layoutX="441.0" layoutY="321.0" mnemonicParsing="false" text="Remember me" textFill="#0b0b0b">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <Label layoutX="713.0" layoutY="321.0" onMouseClicked="#btnForgetPassword" text="Forgot Password ?" textFill="RED" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Label>
+      <PasswordField fx:id="pfPass" layoutX="440.0" layoutY="272.0" prefHeight="39.0" prefWidth="387.0" promptText="Enter password...">
+         <font>
+            <Font size="15.0" />
+         </font></PasswordField>
+      <Button fx:id="bnthidePass_Login" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="789.0" layoutY="276.0" minWidth="29.0" mnemonicParsing="false" onAction="#hidePass" opacity="0.98" prefHeight="30.0" prefWidth="29.0" style="-fx-background-color: white;" textAlignment="CENTER" visible="false">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #fff;">
+               <image>
+                  <Image url="@../Icon/hide.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="bntshowPass_Login" layoutX="787.0" layoutY="276.0" minWidth="33.0" mnemonicParsing="false" onAction="#showPass" prefHeight="30.0" prefWidth="33.0" style="-fx-background-color: white;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #fff;">
+               <image>
+                  <Image url="@../Icon/view.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
